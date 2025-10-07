@@ -50,7 +50,7 @@ if(isset($_POST["add"])){
         <form method="POST"> <!--method POST for *uploading* info --> 
     <!-- required makes sure all the boxes are filled with data -->
       <h2 style="text-align:center;font-size:28px; margin-bottom: 6px">Sign Up</h2>
-<p style="display: block; font-size: 12px; font-weight: 400; color: rgba(0,0,0,0.4); text-align: center; margin-bottom: 15px">Provide your info to register</p>
+      <p style="display: block; font-size: 12px; font-weight: 400; color: rgba(0,0,0,0.4); text-align: center; margin-bottom: 15px">Provide your info to register</p>
 
       <label for="fname">First Name</label>
       <input type="text" id="fname" name="fname" required placeholder="Type your first name"><br>
