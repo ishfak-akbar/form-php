@@ -27,13 +27,13 @@ $conn->query("CREATE TABLE IF NOT EXISTS tbl_form (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )");
 
-// Set content type for AJAX responses
+//set content type for AJAX responses
 header('Content-Type: application/json');
 
-// Handle different actions
+//handle different actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add'])) {
-        // Add new record
+        //add new records
         $fname = $conn->real_escape_string($_POST["fname"]);
         $lname = $conn->real_escape_string($_POST["lname"]);
         $email = $conn->real_escape_string($_POST["email"]);
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['success' => false, 'message' => 'Error: ' . $conn->error]);
         }
     } elseif (isset($_POST['edit'])) {
-        // Update record
+        //update record
         $id = $conn->real_escape_string($_POST["id"]);
         $fname = $conn->real_escape_string($_POST["fname"]);
         $lname = $conn->real_escape_string($_POST["lname"]);
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['success' => false, 'message' => 'Error: ' . $conn->error]);
         }
     } elseif (isset($_POST['delete'])) {
-        // Delete record
+        //delete record
         $id = $conn->real_escape_string($_POST["id"]);
         $sql = "DELETE FROM tbl_form WHERE id=$id";
 
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['action'])) {
         if ($_GET['action'] === 'get_users') {
-            // Get all users
+            //get all users info
             $sql = "SELECT * FROM tbl_form ORDER BY id DESC";
             $result = $conn->query($sql);
             $users = [];
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             echo json_encode(['success' => true, 'data' => $users]);
         } elseif ($_GET['action'] === 'get_user') {
-            // Get single user
+            //get single user info
             $id = $conn->real_escape_string($_GET["id"]);
             $result = $conn->query("SELECT * FROM tbl_form WHERE id=$id");
             $user = $result->fetch_assoc();

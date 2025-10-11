@@ -1,15 +1,15 @@
-// Load users when page loads
+//load users when page loads
 document.addEventListener("DOMContentLoaded", function () {
   loadUsers();
 
-  // Setup form submissions
+  //setup form submissions
   setupForms();
 
-  // Setup modal events
+  //setup modal events
   setupModal();
 });
 
-// Load all users from server
+//load all users from server
 function loadUsers() {
   fetch("process.php?action=get_users")
     .then((response) => response.json())
@@ -27,7 +27,7 @@ function loadUsers() {
     });
 }
 
-// Display users in the list
+//display users in the list
 function displayUsers(users) {
   const userList = document.getElementById("userList");
 
@@ -95,7 +95,7 @@ function displayUsers(users) {
     .join("");
 }
 
-// Setup form submissions with AJAX
+//setup form submissions with AJAX
 function setupForms() {
   const forms = document.querySelectorAll("form");
 
@@ -106,9 +106,9 @@ function setupForms() {
       const formData = new FormData(this);
       const submitButton = this.querySelector('button[type="submit"]');
       const originalText = submitButton.innerHTML;
-      const isMainForm = this.id === "mainForm"; // Check if this is the main form
+      const isMainForm = this.id === "mainForm"; //check if this is the main form
 
-      // Show loading state
+      //show loading state
       submitButton.innerHTML = "Processing...";
       submitButton.disabled = true;
 
@@ -121,9 +121,8 @@ function setupForms() {
           if (data.success) {
             alert(data.message);
 
-            // RESET THE MAIN FORM AFTER SUCCESSFUL SUBMISSION
             if (isMainForm) {
-              resetMainForm(); // This clears all form fields
+              resetMainForm(); //clears all form fields
             }
 
             if (this.id === "editForm") {
@@ -141,7 +140,7 @@ function setupForms() {
           alert("An error occurred. Please try again.");
         })
         .finally(() => {
-          // Restore button state
+          //restore button state
           submitButton.innerHTML = originalText;
           submitButton.disabled = false;
         });
@@ -149,28 +148,28 @@ function setupForms() {
   });
 }
 
-// Reset main form function
+//reset main form function
 function resetMainForm() {
   const mainForm = document.getElementById("mainForm");
   if (mainForm) {
     mainForm.reset();
 
-    // Additional reset for specific fields if needed
+    //additional reset for specific fields if needed
     const dateField = mainForm.querySelector('input[type="date"]');
     if (dateField) {
-      dateField.value = ""; // Ensure date field is cleared
+      dateField.value = ""; //ensure date field is cleared
     }
 
     const selectFields = mainForm.querySelectorAll("select");
     selectFields.forEach((select) => {
-      select.selectedIndex = 0; // Reset to first option
+      select.selectedIndex = 0; //reset to first option
     });
 
     console.log("Form reset successfully!");
   }
 }
 
-// Modal functionality
+//modal functionality
 function openEditModal(userId) {
   fetch(`process.php?action=get_user&id=${userId}`)
     .then((response) => response.json())
@@ -178,7 +177,7 @@ function openEditModal(userId) {
       if (data.success) {
         const user = data.data;
 
-        // Populate form fields
+        //give input in form fields
         document.getElementById("editId").value = user.id;
         document.getElementById("editFname").value = user.firstName || "";
         document.getElementById("editLname").value = user.lastName || "";
@@ -190,7 +189,7 @@ function openEditModal(userId) {
         document.getElementById("editSubscription").value =
           user.subscription || "";
 
-        // Show modal
+        //show modals
         const modal = document.getElementById("editModal");
         modal.classList.remove("hidden");
         modal.classList.add("flex");
@@ -212,7 +211,7 @@ function closeEditModal() {
   document.body.style.overflow = "auto";
 }
 
-// Delete user function
+//delete user function
 function deleteUser(userId) {
   if (confirm("Are you sure you want to delete this user?")) {
     const formData = new FormData();
@@ -239,7 +238,7 @@ function deleteUser(userId) {
   }
 }
 
-// Setup modal events
+//setup modal events
 function setupModal() {
   const modal = document.getElementById("editModal");
 
@@ -252,7 +251,7 @@ function setupModal() {
     });
   }
 
-  // Close when pressing Escape key
+  //close when pressing Escape key
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       closeEditModal();
