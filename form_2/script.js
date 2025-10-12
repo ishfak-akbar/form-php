@@ -80,7 +80,7 @@ function displayUsers(users) {
                 </div>
                 <div class="flex space-x-2">
                     <button onclick="openEditModal(${user.id})" 
-                            class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-200 font-semibold">
+                            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200 font-semibold">
                         Edit
                     </button>
                     <button onclick="deleteUser(${user.id})" 

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="gradient-background min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-      <!-- Form Section -->
-      <section class="flex justify-center items-center min-h-[50vh]">
+  <body class="min-h-screen">
+    <div class="container mx-auto px-4 py-4">
+      <!-- form Section -->
+      <section class="flex justify-center items-center min-h-[100vh]">
         <form
           method="POST"
           action="process.php"
           id="mainForm"
           class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl w-full max-w-md"
         >
-          <!-- Add name="add" to identify this as the add form -->
           <input type="hidden" name="add" value="1" />
 
           <h2 class="text-2xl font-bold text-center text-white mb-2">
@@ -159,7 +160,7 @@
       </section>
 
       <!-- Data Display Section -->
-      <div class="max-w-6xl mx-auto mt-12">
+      <div class="max-w-6xl mx-auto mt-12 min-h-[100vh]">
         <h3 class="text-2xl font-bold text-white text-center mb-6">
           Saved Data
         </h3>
@@ -343,7 +344,7 @@
       </div>
     </div>
 
-    <!-- Success Message (optional) -->
+    <!-- Success Message -->
     <div
       id="successMessage"
       class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50"
@@ -367,25 +368,6 @@
           opacity: 1;
           transform: translateY(0);
         }
-      }
-
-      /* Custom scrollbar for modal */
-      #editModal .overflow-y-auto::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      #editModal .overflow-y-auto::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 3px;
-      }
-
-      #editModal .overflow-y-auto::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 3px;
-      }
-
-      #editModal .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-        background: #a8a8a8;
       }
     </style>
   </body>
