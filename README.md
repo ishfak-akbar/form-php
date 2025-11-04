@@ -1,4 +1,4 @@
-# 🧾 Advanced PHP User Registration System
+# 🧾 User Registration System
 
 A modern, interactive web application built with **PHP**, **MySQL**, **JavaScript (AJAX)**, **HTML**, **CSS**, and **Tailwind CSS**.  
 This project allows users to **register, view, edit, and delete** data — all dynamically without reloading the page — using a clean, modular, and responsive interface.
