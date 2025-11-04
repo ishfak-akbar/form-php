@@ -64,7 +64,7 @@ C:\xampp\htdocs\PHP-User-Form
 *(Tables will be created automatically when you run the project.)*
 
 4. **Run the project:**
-http://localhost/PHP-User-Form/
+http://localhost/WebProgramming/form_2/
 
 
 ✅ Now you can register users, view them live, edit, and delete seamlessly — all without page reloads.
